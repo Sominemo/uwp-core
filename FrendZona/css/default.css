@@ -1,0 +1,23 @@
+﻿body {
+  /* Uncomment this to enable scrolling and zooming
+  touch-action: manipulation;
+  */
+}
+
+icon {
+    font-family: "Segoe MDL2 Assets";
+    display: inline-block;
+    font-size: inherit;
+    color: inherit;
+    line-height:normal;
+    vertical-align: middle;
+    padding: 2px;
+}
+
+header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 60px;
+
+}
