@@ -1,68 +1,65 @@
-﻿// Набор функций, которые используются в различных местах
+﻿// Collection of functions for different stuff
 var engines = {
- 
-}
 
-// Подключаемый метод к типу Object
-// Предназначен для поиска ключа в сложных объектах
+};
 
-// @param *{object} a - объект для поиска
-// @param *{string} b - искомый ключ
-// @param {int} [c = -1] - глубина поиска. -1 - нет границы
-// @param {bool} [d = false]
+// Proprety method for objects
+// Mission: to find THE KEY
+
+// @param *{object} a - object to search for
+// @param *{string} b - sought-for key
+// @param {int} [c = -1] - search depth. -1 - no limits
 // @return (d == true ? {bool} : {array[bool, any]})
-Object.prototype.findKey = function (b, c, d) {
-    a = this;
+Object.prototype.findKey = function (b, c) {
+    let a = this;
     c = c || -1;
-    d = d || false;
-    // Tриггер
+    // Trigger
     let r = false;
-    // Будущий результат, если он будет
+    // The future result, if it will be
     let res = false;
-    // Массив для рекурсивного поиска по объекту
+    // Array for recursive search in object
     let objects = [];
-    // Временная переменная
+    // Temp. variable
     let tryv;
 
-    // Этап A: Поиск в объекте
-    if (typeof a == "object") {
+    // Stage A+B: Searching in the object and child objects
+    if (typeof a === "object") {
         Object.keys(a).every((k) => {
-            if (typeof a[k] == "object") objects.push(k);
             if (k === b) {
                 r = true;
                 res = a[k];
                 return false;
             }
-            return true;
-        });
-    }
 
-    // Этап B: Рекурсивный поиск во вложенных объектах, если это позволяет заданная глубина
-    if (!r && c !== 0 && objects.length) {
-        objects.every((e) => {
-            tryv = a[e].findKey(b, c - 1, true);
-            if (tryv !== false) {
-                r = true;
-                res = tryv;
-                return false;
+            if (typeof a[k] === "object") {
+                if (!r && c !== 0) {
+                        tryv = a[k].findKey(b, c - 1);
+                        if (tryv[0] !== false) {
+                            r = true;
+                            res = tryv[1];
+                            return false;
+                        }
+                        return true;
+                }
             }
+
             return true;
         });
     }
 
-    // Этап C: Проходим все элементы массива, если таков попадается
-    if (!r && c !== 0 && typeof a == "array") {
+    // Stage C: Checking all array childs if we've found an array
+    if (!r && c !== 0 && Array.isArray(a)) {
         a.every((e) => {
-            tryv = a[e].findKey(b, c - 1, true)
-            if (tryv !== false) {
+            tryv = a[e].findKey(b, c - 1);
+            if (tryv[0] !== false) {
                 r = true;
-                res = tryv;
+                res = tryv[1];
                 return false;
             }
             return true;
         });
     }
 
-    // Возвращаем результат
-    return (d ? res : (r ? [r, res] : r));
-} 
+    // Giving the result
+    return [r, res];
+}; 
