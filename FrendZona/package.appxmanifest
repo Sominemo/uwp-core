@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="c9660f8f-0c6e-4117-9be3-5afbea90a638" Version="0.1.1.0" Publisher="CN=sominemo" />
+  <Identity Name="frendzona-uwp" Version="0.0.1.0" Publisher="CN=FrendZona" />
   <mp:PhoneIdentity PhoneProductId="c9660f8f-0c6e-4117-9be3-5afbea90a638" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>FrendZona</DisplayName>
-    <PublisherDisplayName>sominemo</PublisherDisplayName>
+    <PublisherDisplayName>FrendZona</PublisherDisplayName>
     <Logo>images\storelogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -16,9 +16,14 @@
   <Applications>
     <Application Id="App" StartPage="index.html">
       <uap:VisualElements DisplayName="FrendZona" Description="FrendZona" BackgroundColor="transparent" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png">
+        <uap:LockScreen Notification="badge" BadgeLogo="images\BadgeLogo.png" />
+        <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png" ShortName="FrendZona" Square310x310Logo="images\LargeTile.png" Square71x71Logo="images\SmallTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+          </uap:ShowNameOnTiles>
         </uap:DefaultTile>
-        <uap:SplashScreen Image="images\splashscreen.png" />
+        <uap:SplashScreen Image="images\splashscreen.png" BackgroundColor="#34BFB0" />
       </uap:VisualElements>
     </Application>
   </Applications>
