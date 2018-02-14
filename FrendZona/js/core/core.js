@@ -1,4 +1,4 @@
-﻿var app = {
+﻿const app = {
     info: {
         name: Windows.ApplicationModel.Package.current.displayName,
         publisher: Windows.ApplicationModel.Package.current.publisherDisplayName,
