@@ -1,7 +1,8 @@
 ﻿body {
-  /* Uncomment this to enable scrolling and zooming
+    /* Uncomment this to enable scrolling and zooming
   touch-action: manipulation;
   */
+    background: #eee;
 }
 
 icon {
@@ -9,15 +10,20 @@ icon {
     display: inline-block;
     font-size: inherit;
     color: inherit;
-    line-height:normal;
+    line-height: normal;
     vertical-align: middle;
     padding: 2px;
 }
 
 header {
-   position: fixed;
-   top: 0;
-   left: 0;
-   height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    background: #34BFB0;
+    height: 60px;
+}
 
+#header_content {
+    position: relative;
 }
