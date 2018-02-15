@@ -10,5 +10,12 @@
 
     status: {
         debug: Windows.ApplicationModel.Package.current.isDevelopmentMode
+    },
+
+    modules: {
+        list: [
+            { id: 'dialogs', startFunc: undefined, name: 'Dialogs', inMenu: true, icon: '&#xE119;'}
+        ]
     }
 };
+
