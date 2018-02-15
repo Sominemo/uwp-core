@@ -114,9 +114,11 @@
     <Content Include="js\core\connect.js" />
     <Content Include="js\core\core.js" />
     <Content Include="js\core\engines.js" />
+    <Content Include="js\core\lang.js" />
     <Content Include="js\core\ui.js" />
     <Content Include="js\main.js" />
     <Content Include="css\default.css" />
+    <Content Include="lang\ru.json" />
     <None Include="FrendZona_TemporaryKey.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
