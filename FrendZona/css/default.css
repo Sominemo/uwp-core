@@ -2,6 +2,7 @@
     /* Uncomment this to enable scrolling and zooming
   touch-action: manipulation;
   */
+    font-family: 'Segoe UI';
     background: #eee;
 }
 
@@ -15,15 +16,134 @@ icon {
     padding: 2px;
 }
 
+.pointer-mouse {
+    cursor: pointer;
+}
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     display: block;
     background: #34BFB0;
-    height: 60px;
+    height: 48px;
+    width: 100%;
 }
 
 #header_content {
     position: relative;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#menu-control {
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+}
+
+#menu-control:hover {
+    background: rgba(0,0,0,.05);
+}
+
+#app-title {
+    font-weight: 600;
+    font-size: 17px;
+    color: white;
+}
+
+#main {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 48px;
+}
+
+.cards-container.list-cards {
+    padding: 4px;
+}
+
+.list-cards .card {
+    padding: 10px;
+    background: white;
+}
+
+.list-cards .card:hover {
+    background: #f7f7f7;
+}
+
+.list-cards .card:active {
+    background: #f0f0f0;
+}
+
+.card .dialog-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card .dialog-content .dialog-photo {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.card .dialog-content .info-1 {
+        width: calc(100% - 100px);
+    }
+
+.card .dialog-content .info-1, .card .dialog-content .info-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .dialog-content .info-1 .name {
+    line-height: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card .dialog-content .info-1 .message {
+        line-height: 20px;
+        color: grey;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+.card .dialog-content .info-2 {
+    text-align: right;
+    margin-left: auto;
+}
+
+.card .dialog-content .info-2 .time {
+    line-height: 20px;
+    color: grey;
+    font-size: 13px;
+}
+
+.card .dialog-content .info-2 .status {
+    line-height: 20px;
+}
+
+.unread-bulb {
+    display: inline-block;
+    padding: 0 5px 0 5px;
+    background: #34BFB0;
+    border-radius: 2em;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    vertical-align: middle;
+    min-width: 7px;
+    min-height: 7px;
+}
+
+.unread-bulb:empty {
+    padding: 0;
 }
