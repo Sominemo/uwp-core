@@ -7,7 +7,7 @@ var engines = {
         // Convert HEX to RGB
         // @param {string} d - color in HEX format (with #)
         // @param {bool} o - return as object
-        // @param {bool} f - return rgbA type (1 by default)
+        // @param {int} f - return rgbA type (255 by default)
         // @return {array[int] || object[int]} [r, g, b]
         getRGB: function (d, o, f) {
             d = d || "#FFFFFF";
@@ -19,14 +19,14 @@ var engines = {
             let g = rgb >> 8 & 0xff;
             let b = rgb >> 0 & 0xff;
 
-            return o ? { r: r, g: g, b: b, a: f ? 1 : undefined } : [r, g, b, f ? 1 : undefined];
+            return o ? { r: r, g: g, b: b, a: f ? f : 255 } : [r, g, b, f ? f : 255];
         },
 
         // Get color brightnes
         // @param {string} - color in HEX format (with #)
         // @return {int} - color brightnes (see below what does it mean)
         getBrightnes: function (d) {
-            let [a, b, c] = engines.color.getRGB(d);
+            let [r, g, b] = engines.color.getRGB(d);
             let luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
 
             return luma; // > 160 - Light color, so text should be dark
