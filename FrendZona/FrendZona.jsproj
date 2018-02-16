@@ -114,6 +114,7 @@
     <Content Include="js\core\connect.js" />
     <Content Include="js\core\core.js" />
     <Content Include="js\core\engines.js" />
+    <Content Include="js\core\funcs.js" />
     <Content Include="js\core\lang.js" />
     <Content Include="js\core\ui.js" />
     <Content Include="js\main.js" />
