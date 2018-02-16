@@ -1,6 +1,5 @@
 ﻿/*
 [TODO] Load localization error
-[TODO] Automatic lang replacer
 [TODO] Form changer
 */
 
@@ -10,14 +9,17 @@ var _ = function (index, replace) {
 
     if (!s[index]) return false; // Check key
 
-    let r = s[index].toString; // Get result
+    let r = s[index].toString(); // Get result
 
     if (typeof replace === 'object') { // If ve've an object for replace
-        let k = replace.keys; // Get keys
+        let k = Object.keys(replace); // Get keys
         k.forEach((e) => { // Check each
-            r.split('{%' + e + '%}').join(replace[e].toString); // replacing via split().join()
+            r = r.split('{%' + e.toString() + '%}').join(replace[e].toString()); // replacing via split().join()
         });
-}
+    }
+
+        return r;
+
 }
 
 // localization data
