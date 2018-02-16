@@ -14,7 +14,7 @@
 
     modules: {
         list: [
-            { id: 'dialogs', startFunc: undefined, name: 'Dialogs', inMenu: true, icon: '&#xE119;'}
+            { id: 'dialogs', startFunc: undefined, name: _('mail'), inMenu: true, icon: '&#xE119;'}
         ]
     }
 };
