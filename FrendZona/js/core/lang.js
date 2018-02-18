@@ -11,10 +11,10 @@ var _ = function (index, replace) {
 
     let r = s[index].toString(); // Get result
 
-    if (typeof replace === 'object') { // If ve've an object for replace
+    if (typeof replace === "object") { // If ve"ve an object for replace
         let k = Object.keys(replace); // Get keys
         k.forEach((e) => { // Check each
-            r = r.split('{%' + e.toString() + '%}').join(replace[e].toString()); // replacing via split().join()
+            r = r.split("{%" + e.toString() + "%}").join(replace[e].toString()); // replacing via split().join()
         });
     }
 
@@ -32,29 +32,29 @@ _.prototype.langLib = {
 // Load language library
 // @param {string} l - language name
 // @callback {function(bool)} c
-_.prototype.loadLang = function (l, c) {
+_.prototype.loadLang = async function (l, c) {
     // check params
     if (!l) return;
     l = l.toString(); 
     // Navigate to languages folder
-    let a = Windows.ApplicationModel.Package.current.installedLocation.getFolderAsync('lang')
-        .then(e => e.getFileAsync(l + '.json')) // Select localization file
+    let a = Windows.ApplicationModel.Package.current.installedLocation.getFolderAsync("lang")
+        .then(e => e.getFileAsync(l + ".json")) // Select localization file
         .then(m => { return m }); // Return result (class StorageFile)
 
-    a.done((l) => { // When the file will be found 
-        Windows.Storage.FileIO.readTextAsync(l) // Read the file. r - file's RAW.
+    a.done((lp) => { // When the file will be found 
+        Windows.Storage.FileIO.readTextAsync(lp) // Read the file. r - file"s RAW.
             .then(function (r) {
                 let res;
                 try {
                     res = JSON.parse(r); // Get lang stuff
                     _.prototype.langLib = res; // Write data
-                    if (c) c(true);
+                    if (c) c(true);                    
                 } catch (e) {
-                    Windows.UI.Popups.MessageDialog('WTF?!'); // If an error (temp)
+                    console.log(e);
                     if (c) c(false);
                 }
             }); 
     });
 }
 
-_.prototype.loadLang('ru');
+loadRegister.registerNew({ name: 'load_lang', func: async function (a) { _.prototype.loadLang("ru", a); } }, { insert: { e: 'ui_responsible', type: 'before' } });
