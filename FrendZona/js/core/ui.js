@@ -6,6 +6,7 @@
              document.getElementById("menu-control").addEventListener("click", function () { document.getElementById("sidebar").classList.toggle("opened") });
              a();
     },
+    applyTheme: function (a) {ui.theme.apply(); a();},
     fillSideBar: function (a) {
         document.getElementById("sb-scroll").innerHTML = '<div id="sidebar-header-margin"></div>';
         app.modules.list.forEach((e) => {
@@ -31,7 +32,7 @@
     },
     theme: {
         prop: {
-            mainColor: new UWPColor("#31b3a5").rgba,
+            mainColor: new UWPColor("#209488").rgba,
             mainDark: new UWPColor("#31a094").rgba,
             mainDark1: new UWPColor("#2e9186").rgba,
             mainRealDark: new UWPColor("#1c6f66").rgba,
@@ -87,6 +88,6 @@
 
 
 // Make SB responsible task and fill menu
-loadRegister.registerNew({ name: 'theme_apply', func: ui.theme.apply });
+loadRegister.registerNew({ name: 'theme_apply', func: ui.applyTheme });
 loadRegister.registerNew({ name: 'responsible_ui', func: ui.makeResponsible });
 loadRegister.registerNew({ name: 'fill_sb', func: ui.fillSideBar });
