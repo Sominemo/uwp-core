@@ -1,0 +1,10 @@
+﻿@media (min-width: 1098px) {
+    #sidebar {
+        width: 48px;
+        transform: translateX(0);
+    }
+
+    #sidebar.opened {
+        width: 300px;
+    }
+}
