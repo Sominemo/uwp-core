@@ -1,6 +1,5 @@
 ﻿/*
 [TODO] Load localization error
-[TODO] Form changer
 */
 
 // Get language index
