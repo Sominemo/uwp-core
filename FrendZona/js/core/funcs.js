@@ -42,7 +42,7 @@ Object.prototype.findKey = function (b, c) {
         });
     }
 
-    // Stage C: Checking all array childs if we've found an array
+    // Stage C: Checking all array childs if we"ve found an array
     if (!r && c !== 0 && Array.isArray(a)) {
         a.every((e) => {
             tryv = a[e].findKey(b, c - 1);
@@ -60,7 +60,7 @@ Object.prototype.findKey = function (b, c) {
 }; 
 
 // Class that cobverts color to UWP format
-// @param {string} [d='#000000'] - the color
+// @param {string} [d="#000000"] - the color
 // @param {int} [a=255] - opacity
 // @prop hex {string} - hex of the color
 // @prop rgba {object[int]} - rgba in UWP style
