@@ -87,5 +87,6 @@
 
 
 // Make SB responsible task and fill menu
+loadRegister.registerNew({ name: 'theme_apply', func: ui.theme.apply });
 loadRegister.registerNew({ name: 'responsible_ui', func: ui.makeResponsible });
 loadRegister.registerNew({ name: 'fill_sb', func: ui.fillSideBar });
