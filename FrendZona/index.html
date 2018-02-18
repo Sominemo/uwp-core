@@ -4,16 +4,40 @@
     <meta charset="utf-8" />
     <title>FrendZona</title>
     <link href="css/default.css" rel="stylesheet" />
+    <link href="css/min1000.css" rel="stylesheet" />
+    <link href="css/loader.css" rel="stylesheet" />
 </head>
 <body>
+    <script src="js/core/load.js"></script>
     <script src="js/core/funcs.js"></script>
     <script src="js/core/engines.js"></script>
     <script src="js/core/lang.js"></script>
     <script src="js/core/core.js"></script>
     <script src="js/core/ui.js"></script>
 
-    <header><div id="header_content"><icon id="menu-control">&#xE700;</icon><div id="app-title">FrendZona</div></div></header>
+    <div id="splash-screen-custom">
+        <div class='loader-animated'>
+            <div class='circle'></div>
+            <div class='circle'></div>
+            <div class='circle'></div>
+            <div class='circle'></div>
+            <div class='circle'></div>
+        </div>
+        <div id="custom-splash-screen-subtext"></div>
+    </div>
 
+    <header>
+        <div id="header_content">
+            <icon id="menu-control">&#xE700;</icon>
+            <div id="app-title">FrendZona</div>
+            <div id="header-right-panel"><icon>&#xE15F;</icon></div>
+        </div>
+    </header>
+    <nav id="sidebar">
+        <div id="sb-scroll">
+            <div id="sidebar-header-margin"></div>
+        </div>
+    </nav>
 
     <main id="main">
 
@@ -49,6 +73,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
     </main>
