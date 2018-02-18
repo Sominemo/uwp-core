@@ -4,7 +4,7 @@
         publisher: Windows.ApplicationModel.Package.current.publisherDisplayName,
         about: Windows.ApplicationModel.Package.current.description,
         installed: Windows.ApplicationModel.Package.current.installedDate,
-        version: parseFloat(Windows.ApplicationModel.Package.current.id.version.major + '.' + Windows.ApplicationModel.Package.current.id.version.minor),
+        version: parseFloat(Windows.ApplicationModel.Package.current.id.version.major + "." + Windows.ApplicationModel.Package.current.id.version.minor),
         build: Windows.ApplicationModel.Package.current.id.version.build
     },
 
@@ -14,7 +14,7 @@
 
     modules: {
         list: [
-            { id: 'dialogs', startFunc: undefined, name: _('mail'), inMenu: true, icon: '&#xE119;'}
+            { id: "dialogs", startFunc: void (0), name: 'mail', localized: true, inMenu: true, icon: "&#xE119;"}
         ]
     }
 };
