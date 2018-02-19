@@ -43,15 +43,16 @@ _.prototype.loadLang = async function (l, c) {
     a.done((lp) => { // When the file will be found 
         Windows.Storage.FileIO.readTextAsync(lp) // Read the file. r - file"s RAW.
             .then(function (r) {
-                let res;
+                let res, rp;
                 try {
                     res = JSON.parse(r); // Get lang stuff
                     _.prototype.langLib = res; // Write data
-                    if (c) c(true);                    
+                    rp = true;              
                 } catch (e) {
                     console.log(e);
-                    if (c) c(false);
+                    rp = fasle;
                 }
+                if (c) c(rp); 
             }); 
     });
 }

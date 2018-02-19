@@ -1,4 +1,10 @@
-﻿// All that is responsive for onLoad tasks and splash screen hanging
+﻿// Checking
+setTimeout(() => {
+    if (!app.status.ready) document.getElementById("custom-splash-screen-subtext").innerHTML = "It's taking to load too long. Maybe something went wrong<br><button id=\"splash-start-anyway-button\" class=\"button\">Start anyway</button>";
+    document.getElementById("splash-start-anyway-button").onclick = loadRegister.end;
+}, 15000);
+
+// All that is responsive for onLoad tasks and splash screen hanging
 var loadRegister = {
     // List of pending tasks
     onLoadTasks: [
@@ -77,9 +83,16 @@ var loadRegister = {
         let func = loadRegister.end;
         loadRegister.onLoadTasks.slice().reverse().forEach((e) => {
             let m = func;
-            func = function () { e.func(m) };
+            func = function () {
+                try { e.func(m); }
+                catch (e) {
+                    document.getElementById("custom-splash-screen-subtext").innerText = "Something went wrong. Application could hang on";
+                } 
+            };
         });
-        func();
+
+            func();
+        
 
         // Removing loading screen
         
@@ -87,7 +100,8 @@ var loadRegister = {
     end: function () {
         splash = document.getElementById("splash-screen-custom");
         if (splash !== null) { splash.style.opacity = 0; setTimeout(() => { splash.parentNode.removeChild(splash) }, 200); }
+        app.status.ready = true;
     }
 }
 // Setting onload listener
-window.addEventListener("load", loadRegister.startTasks);
+    window.addEventListener("load", loadRegister.startTasks);

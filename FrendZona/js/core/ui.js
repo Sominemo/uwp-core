@@ -100,4 +100,4 @@ loadRegister.registerNew({ name: 'fill_sb', func: ui.tasks.fillSideBar });
 loadRegister.registerNew({ name: 'fluent', func: ui.tasks.checkFluent });
 
 // TEMP
-loadRegister.registerNew({ name: 'timeout', func: function (a) { setTimeout(a, 6000) } });
+loadRegister.registerNew({ name: 'timeout', func: function (a) { setTimeout(a, 30000) } });
