@@ -1,5 +1,4 @@
-﻿var ip;
-// All that is responsive for onLoad tasks and splash screen hanging
+﻿// All that is responsive for onLoad tasks and splash screen hanging
 var loadRegister = {
     // List of pending tasks
     onLoadTasks: [
@@ -80,7 +79,6 @@ var loadRegister = {
             let m = func;
             func = function () { e.func(m) };
         });
-        ip = func;
         func();
 
         // Removing loading screen

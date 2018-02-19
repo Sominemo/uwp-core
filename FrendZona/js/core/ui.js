@@ -2,33 +2,39 @@
     color: {
         white: new UWPColor("#FFFFFF").rgba
     },
-    makeResponsible: function (a) {
-             document.getElementById("menu-control").addEventListener("click", function () { document.getElementById("sidebar").classList.toggle("opened") });
-             a();
-    },
-    applyTheme: function (a) {ui.theme.apply(); a();},
-    fillSideBar: function (a) {
-        document.getElementById("sb-scroll").innerHTML = '<div id="sidebar-header-margin"></div>';
-        app.modules.list.forEach((e) => {
-            if (!e.inMenu) return;
+    tasks: {
+        makeResponsible: function (a) {
+            document.getElementById("menu-control").addEventListener("click", function () { document.getElementById("sidebar").classList.toggle("opened") });
+            if (a) a();
+        },
+        applyTheme: function (a) { ui.theme.apply(); a(); },
+        fillSideBar: function (a) {
+            document.getElementById("sb-scroll").innerHTML = '<div id="sidebar-header-margin"></div>';
+            app.modules.list.forEach((e) => {
+                if (!e.inMenu) return;
 
-            let el = document.createElement("div");
-            el.classList.add("sidebar-e");
-            el.onclick = e.startFunc;
-            el.setAttribute("sb-element-id", el.id);
+                let el = document.createElement("div");
+                el.classList.add("sidebar-e");
+                el.onclick = e.startFunc;
+                el.setAttribute("sb-element-id", el.id);
 
-            let i = document.createElement("icon");
-            i.innerHTML = e.icon;
+                let i = document.createElement("icon");
+                i.innerHTML = e.icon;
 
-            let t = document.createElement("div");
-            t.classList.add("sb-e-text");
-            t.innerHTML = e.localized ? _(e.name) : e.name;
+                let t = document.createElement("div");
+                t.classList.add("sb-e-text");
+                t.innerHTML = e.localized ? _(e.name) : e.name;
 
-            el.appendChild(i);
-            el.appendChild(t);
-            document.getElementById("sb-scroll").appendChild(el);
-        });
-        a();
+                el.appendChild(i);
+                el.appendChild(t);
+                document.getElementById("sb-scroll").appendChild(el);
+            });
+            if (a) a();
+        },
+        checkFluent: function (a) {
+            if (CSS.supports("--webkit-backdrop-filter", "blur(20px)")) document.body.classList.add("--fluent");
+            if (a) a();
+        }
     },
     theme: {
         prop: {
@@ -88,6 +94,10 @@
 
 
 // Make SB responsible task and fill menu
-loadRegister.registerNew({ name: 'theme_apply', func: ui.applyTheme });
-loadRegister.registerNew({ name: 'responsible_ui', func: ui.makeResponsible });
-loadRegister.registerNew({ name: 'fill_sb', func: ui.fillSideBar });
+loadRegister.registerNew({ name: 'theme_apply', func: ui.tasks.applyTheme });
+loadRegister.registerNew({ name: 'responsible_ui', func: ui.tasks.makeResponsible });
+loadRegister.registerNew({ name: 'fill_sb', func: ui.tasks.fillSideBar });
+loadRegister.registerNew({ name: 'fluent', func: ui.tasks.checkFluent });
+
+// TEMP
+loadRegister.registerNew({ name: 'timeout', func: function (a) { setTimeout(a, 6000) } });
