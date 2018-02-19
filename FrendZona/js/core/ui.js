@@ -98,6 +98,3 @@ loadRegister.registerNew({ name: 'theme_apply', func: ui.tasks.applyTheme });
 loadRegister.registerNew({ name: 'responsible_ui', func: ui.tasks.makeResponsible });
 loadRegister.registerNew({ name: 'fill_sb', func: ui.tasks.fillSideBar });
 loadRegister.registerNew({ name: 'fluent', func: ui.tasks.checkFluent });
-
-// TEMP
-loadRegister.registerNew({ name: 'timeout', func: function (a) { setTimeout(a, 30000) } });

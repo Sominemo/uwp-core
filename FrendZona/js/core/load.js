@@ -1,7 +1,10 @@
 ﻿// Checking
 setTimeout(() => {
-    if (!app.status.ready) document.getElementById("custom-splash-screen-subtext").innerHTML = "It's taking too long to load. Maybe something went wrong<br><button id=\"splash-start-anyway-button\" class=\"button\">Start anyway</button>";
-    document.getElementById("splash-start-anyway-button").onclick = loadRegister.end;
+    let st = document.getElementById("custom-splash-screen-subtext");
+    if (!app.status.ready && st !== null) {
+        st.innerHTML = "It's taking too long to load. Maybe something went wrong<br><button id=\"splash-start-anyway-button\" class=\"button\">Start anyway</button>";
+        document.getElementById("splash-start-anyway-button").onclick = loadRegister.end;
+    }
 }, 15000);
 
 // All that is responsive for onLoad tasks and splash screen hanging
@@ -86,7 +89,8 @@ var loadRegister = {
             func = function () {
                 try { e.func(m); }
                 catch (e) {
-                    document.getElementById("custom-splash-screen-subtext").innerText = "Something went wrong. Application could hang on";
+                    let st = document.getElementById("custom-splash-screen-subtext");
+                    if (st !== null) st.innerText = "Something went wrong. Application could hang on";
                 } 
             };
         });
