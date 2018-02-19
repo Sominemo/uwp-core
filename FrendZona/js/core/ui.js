@@ -32,7 +32,7 @@
             if (a) a();
         },
         checkFluent: function (a) {
-            if (CSS.supports("--webkit-backdrop-filter", "blur(20px)")) document.body.classList.add("--fluent");
+            if (CSS.supports("-webkit-backdrop-filter", "blur(20px)")) document.body.classList.add("--fluent");
             if (a) a();
         }
     },

@@ -1,6 +1,6 @@
 ﻿// Checking
 setTimeout(() => {
-    if (!app.status.ready) document.getElementById("custom-splash-screen-subtext").innerHTML = "It's taking to load too long. Maybe something went wrong<br><button id=\"splash-start-anyway-button\" class=\"button\">Start anyway</button>";
+    if (!app.status.ready) document.getElementById("custom-splash-screen-subtext").innerHTML = "It's taking too long to load. Maybe something went wrong<br><button id=\"splash-start-anyway-button\" class=\"button\">Start anyway</button>";
     document.getElementById("splash-start-anyway-button").onclick = loadRegister.end;
 }, 15000);
 
